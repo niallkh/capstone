@@ -14,8 +14,12 @@
     "lite-server": "2.4.0"
   },
   "dependencies": {
+    "ethlint": "^1.2.5",
     "openzeppelin-solidity": "^2.2.0",
+    "prettier": "^1.19.1",
+    "prettier-plugin-solidity": "^1.0.0-alpha.34",
     "solc": "^0.5.2",
-    "solc-js": "^0.5.2"
+    "solc-js": "^0.5.2",
+    "solhint": "^2.3.0"
   }
 }
