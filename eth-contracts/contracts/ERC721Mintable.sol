@@ -40,6 +40,10 @@ contract Ownable {
 
         _owner = newOwner;
     }
+
+    function owner() public view returns (address) {
+        return _owner;
+    }
 }
 
 //  TODO's: Create a Pausable contract that inherits from the Ownable contract
@@ -576,15 +580,15 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
     }
 
     // TODO: create external getter functions for name, symbol, and baseTokenURI
-    function name() external view returns (string memory) {
+    function name() public view returns (string memory) {
         return _name;
     }
 
-    function symbol() external view returns (string memory) {
+    function symbol() public view returns (string memory) {
         return _symbol;
     }
 
-    function tokenURI(uint256 tokenId) external view returns (string memory) {
+    function tokenURI(uint256 tokenId) public view returns (string memory) {
         require(_exists(tokenId));
         return _tokenURIs[tokenId];
     }
@@ -697,4 +701,24 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
 //      -takes in a 'to' address, tokenId, and tokenURI as parameters
 //      -returns a true boolean upon completion of the function
 //      -calls the superclass mint and setTokenURI functions
+contract CustomERC721Token is ERC721Metadata {
 
+    constructor()
+        public
+        ERC721Metadata(
+            "Capstone",
+            "CAP",
+            "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/"
+        )
+    {}
+
+    function mint(address to, uint256 tokenId)
+        external
+        onlyOwner
+        returns (bool)
+    {
+        super._mint(to, tokenId);
+
+        super.setTokenURI(tokenId);
+    }
+}
