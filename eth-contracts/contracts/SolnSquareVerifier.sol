@@ -46,7 +46,7 @@ contract SolnSquareVerifier is ERC721Metadata {
     // TODO Create a function to mint new NFT only after the solution has been verified
     //  - make sure the solution is unique (has not been used before)
     //  - make sure you handle metadata as well as tokenSuplly
-    function mintToken(
+    function mint(
         uint256[2] calldata a,
         uint256[2][2] calldata b,
         uint256[2] calldata c,
@@ -54,9 +54,7 @@ contract SolnSquareVerifier is ERC721Metadata {
         address to,
         uint256 tokenId
     ) external {
-        bytes32 solutionKey = bytes32(
-            keccak256(abi.encodePacked(a, b, c, input))
-        );
+        bytes32 solutionKey = keccak256(abi.encodePacked(a, b, c, input));
         require(
             !uniqueSolutions[solutionKey],
             "This solution is already registered"
@@ -67,7 +65,7 @@ contract SolnSquareVerifier is ERC721Metadata {
         );
         uniqueSolutions[solutionKey] = true;
         addSolution(tokenId, to);
-        super.setTokenURI(tokenId);
         super._mint(to, tokenId);
+        super.setTokenURI(tokenId);
     }
 }

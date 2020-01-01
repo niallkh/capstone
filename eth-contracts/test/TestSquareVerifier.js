@@ -9,9 +9,7 @@ const proof = require("../../zokrates/code/square/proof.json");
 
 // Test verification with incorrect proof
 contract("TestSquareVerifier", async accounts => {
-
   describe("Test verification", function() {
-
     beforeEach(async () => {
       this.contract = await Verifier.new({from: accounts[0]});
     });
