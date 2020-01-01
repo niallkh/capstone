@@ -59,16 +59,16 @@ contract("TestERC721Mintable", accounts => {
 
     it("should fail when minting when address is not contract owner", async () => {
       try {
-        await this.contract.mint(account_two, "2", {from: account_two})
-        throw new Error(`mint should throw error`)
-      } catch(e) {
-        assert.equal("Sender must be owner", e.reason)
+        await this.contract.mint(account_two, "2", {from: account_two});
+        throw new Error(`mint should throw error`);
+      } catch (e) {
+        assert.equal("Sender must be owner", e.reason);
       }
     });
 
     it("should return contract owner", async () => {
-      const owner = await this.contract.owner()
-      assert.equal(account_one, owner)
+      const owner = await this.contract.owner();
+      assert.equal(account_one, owner);
     });
   });
 });

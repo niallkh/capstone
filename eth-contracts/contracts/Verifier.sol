@@ -6,8 +6,6 @@
  * @dev Homepage: https://github.com/musalbas/solidity-BN256G2
  */
 
-pragma solidity ^0.5.8;
-
 library BN256G2 {
     uint256 internal constant FIELD_MODULUS = 0x30644e72e131a029b85045b68181585d97816a916871ca8d3c208c16d87cfd47;
     uint256 internal constant TWISTBX = 0x2b149d40ceb8aaae81be18991be06ac3b5b4c5e559dbefa33267e6dc24a138e5;
@@ -452,8 +450,7 @@ library BN256G2 {
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 // The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-pragma solidity ^0.5.8;
-
+pragma solidity ^0.5.0;
 library Pairing {
     struct G1Point {
         uint256 X;
@@ -505,7 +502,7 @@ library Pairing {
             // Use "invalid" to make gas estimation work
             switch success
                 case 0 {
-                    invalid
+                    invalid()
                 }
         }
         require(success);
@@ -542,7 +539,7 @@ library Pairing {
             // Use "invalid" to make gas estimation work
             switch success
                 case 0 {
-                    invalid
+                    invalid()
                 }
         }
         require(success);
@@ -582,7 +579,7 @@ library Pairing {
             // Use "invalid" to make gas estimation work
             switch success
                 case 0 {
-                    invalid
+                    invalid()
                 }
         }
         require(success);
@@ -664,89 +661,89 @@ contract Verifier {
     function verifyingKey() internal pure returns (VerifyingKey memory vk) {
         vk.a = Pairing.G1Point(
             uint256(
-                0x0c8253b5bb201678374add9f18f5712ccae35da08a7dce41465c649164eaf753
+                0x24eebc8cfc229d0b4c3f0ba6c8bf33863629a8177be6f672dc41b4d569677f75
             ),
             uint256(
-                0x035860915fa354eabdb4a8fc7496a027c85d21b53f6f7ec95182c8a098b4335d
+                0x28c053f003615c148f534f0a61ea500fca5a096185bbe25331eabacc855ed1e3
             )
         );
         vk.b = Pairing.G2Point(
             [
                 uint256(
-                    0x19322cdfba66b7b3bb73b93e352edfd3655bbbaf8294dc2cdc9bad69e46de8c1
+                    0x020372de196343b91402cbed3d444372600bb990f3bb42196a0e0dcea28e2357
                 ),
                 uint256(
-                    0x1165e303b3bfc78658b65d851f9b50453c5b6026c5ed55b2b80977129ac515ee
+                    0x20121c0681a4aeb6bb92eb2694da6fe7c6824c4ee1c2520590b39c65b93b7cca
                 )
             ],
             [
                 uint256(
-                    0x1be77e626b244f2975c9447d3147d084997b55abf294af64e69bee19003b9bf0
+                    0x2a0030fd40c43b9dd7a70d89418577db731b4c2c606917116b0d9920a2be167b
                 ),
                 uint256(
-                    0x242497c3c9d3d93678f5dd8f2e17e502bd4d4e3678eeac8e0f678762466435ed
+                    0x301e3c31d70309082dbc1bea235df11f984d7e6735f164ffde904d06c188b18e
                 )
             ]
         );
         vk.gamma = Pairing.G2Point(
             [
                 uint256(
-                    0x1eaecf5c0a8ef335d9872acd25bef4231daf7ee9f9745e9ab1934138074486ad
+                    0x1e39c0dcbdae3874be4bf7792b71c417e4641daf76a37a91af6d04e63e4abc2a
                 ),
                 uint256(
-                    0x0b464dffd47ec543b0442b470313c5fd756054a961ca13c3aade8b58c98d6f95
+                    0x2ec58ced32a80c34c1235c2662743e42c15d15e7d8c32e99949af20a0924a8c7
                 )
             ],
             [
                 uint256(
-                    0x1ba4c22eb792dc9bce1ec1744c5592714f832acfbafda52b9becaeb8d729197c
+                    0x001de62100fe3c7720af8363cc8a57251ea150f3a69e60bc43df49b1c397840e
                 ),
                 uint256(
-                    0x0c98bf3e8e0d30b32b2c199ad35a16270d225bfd74dbe8dc5b63d87f993c7ce4
+                    0x1bc2610b15dd0d5f28b7398219f42128b1386d44af8c3f61eceeefc02669dadc
                 )
             ]
         );
         vk.delta = Pairing.G2Point(
             [
                 uint256(
-                    0x22bf572493d0f819fd1255a2803ee25c34db6476c4130c740100bc8b3bc6bf28
+                    0x1408d42216e205f4abd2bd914834c77bb9af96f110c72343c2b375e233ae5eb2
                 ),
                 uint256(
-                    0x1a701d787c1144f5750c4ed3f85b4b03f757b9f97acc62a859f4f604526e48d9
+                    0x0c28acf7a52897fc31aee7910a60c9fb5133db6c943a01fcdf8c35b81e9da6df
                 )
             ],
             [
                 uint256(
-                    0x1591d1988d52e01c8bb744f2ca6ec624b0d15527bf6a4d393af8f794b69654c0
+                    0x14727f4270469f72fa5a66412d854f4df388c2e8ba96d8d96d33fdeaa68e8e28
                 ),
                 uint256(
-                    0x2ca93ac61b633de71619fa6414807a03191a3782d6b1863f06849ab763fbfa79
+                    0x1d1006b2df77f8a0b6c44bedd4696dbed9abe32de8327160a9e362046688eda8
                 )
             ]
         );
         vk.gamma_abc = new Pairing.G1Point[](3);
         vk.gamma_abc[0] = Pairing.G1Point(
             uint256(
-                0x0ff76e3542ed38961d8a7aca0e4f1b0aed41bb913c774c68c37eb93157f99612
+                0x086f3aa12e686403d2369988dc04bbf27899bf30a32608a65a8d8de41cca0a2e
             ),
             uint256(
-                0x07d840e5fee757a4659da1f1962ed6a2f3a964b3d015ff3a3cf87a67fc7c6701
+                0x263ff4eab236d47fc402e1671535752100610d4e996bb0c944648c4cec3c535b
             )
         );
         vk.gamma_abc[1] = Pairing.G1Point(
             uint256(
-                0x0a1cb0d408a41bbcc1b838604dcf0528fa532301e01b6985bd18039afb89a783
+                0x0dfb965b610f45e1b65400c30f8468e4a847dc6371eaba398ad18f71f0e42257
             ),
             uint256(
-                0x1f76af5fc25a25d11eaf99b3d4071de61444b6c845d07e829f254d2e3cf48c0e
+                0x1d20de1f1e947732f6f6539ea1cad48c3183c17da98bd4a0bd038dae2be0bcc8
             )
         );
         vk.gamma_abc[2] = Pairing.G1Point(
             uint256(
-                0x17e86c5d4c8fd5a457c251586fcd26bef235b1dff2c9a81501d57578f0aa10af
+                0x224d40ac7d35bea71c11759c2ab1e11eed43cfd95bad7edfc2c18b1bb5d62f33
             ),
             uint256(
-                0x1949a0950c265193577152f6b455ce001f4dc677a06f8e9ef2ceb5126320a71c
+                0x20b491f5448997fd3fa7ed2e0799ab40c54473caf853e78129243969f89999c6
             )
         );
     }
@@ -778,9 +775,7 @@ contract Verifier {
                 Pairing.negate(vk.a),
                 vk.b
             )
-        ) {
-            return 1;
-        }
+        ) return 1;
         return 0;
     }
     event Verified(string s);
@@ -800,9 +795,9 @@ contract Verifier {
         }
         if (verify(inputValues, proof) == 0) {
             emit Verified("Transaction successfully verified.");
-            return true;
+            r = true;
         } else {
-            return false;
+            r = false;
         }
     }
 }
