@@ -6,6 +6,7 @@ import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 import "openzeppelin-solidity/contracts/token/ERC721/IERC721Receiver.sol";
 import "./Oraclize.sol";
 
+
 contract Ownable {
     //  TODO:
     //  1) create a private '_owner' variable of type address with a public getter function
@@ -46,6 +47,7 @@ contract Ownable {
     }
 }
 
+
 //  TODO's: Create a Pausable contract that inherits from the Ownable contract
 //  1) create a private '_paused' variable of type bool
 //  2) create a public setter using the inherited onlyOwner modifier
@@ -83,6 +85,7 @@ contract Pausable is Ownable {
         _paused = paused;
     }
 }
+
 
 contract ERC165 {
     bytes4 private constant _INTERFACE_ID_ERC165 = 0x01ffc9a7;
@@ -127,6 +130,7 @@ contract ERC165 {
         _supportedInterfaces[interfaceId] = true;
     }
 }
+
 
 contract ERC721 is Pausable, ERC165 {
     event Transfer(
@@ -366,6 +370,7 @@ contract ERC721 is Pausable, ERC165 {
     }
 }
 
+
 contract ERC721Enumerable is ERC165, ERC721 {
     // Mapping from owner to list of owned token IDs
     mapping(address => uint256[]) private _ownedTokens;
@@ -549,6 +554,7 @@ contract ERC721Enumerable is ERC165, ERC721 {
     }
 }
 
+
 contract ERC721Metadata is ERC721Enumerable, usingOraclize {
     // TODO: Create private vars for token _name, _symbol, and _baseTokenURI (string)
     string private _name;
@@ -692,6 +698,7 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
     }
 }
 
+
 //  TODO's: Create CustomERC721Token contract that inherits from the
 //  ERC721Metadata contract. You can name this contract as you please
 //  1) Pass in appropriate values for the inherited ERC721Metadata contract
@@ -709,8 +716,7 @@ contract CustomERC721Token is ERC721Metadata {
             "Capstone",
             "CAP",
             "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/"
-        )
-    {}
+        ) {}
 
     function mint(address to, uint256 tokenId)
         external
