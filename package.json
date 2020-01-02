@@ -14,7 +14,8 @@
     "@truffle/hdwallet-provider": "^1.0.28",
     "chai": "^4.2.0",
     "lite-server": "2.4.0",
-    "truffle": "^5.1.6"
+    "truffle": "^5.1.6",
+    "truffle-flattener": "^1.4.2"
   },
   "dependencies": {
     "ethlint": "^1.2.5",

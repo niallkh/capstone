@@ -2,9 +2,19 @@
 
 The capstone will build upon the knowledge you have gained in the course in order to build a decentralized housing product.
 
-# Deployed ERC721 token
+# Capstone ERC721 token links:
 
+* [Contract](https://rinkeby.etherscan.io/address/0x6d5659f6b192494717dd7cdc1cc9428526367420)
+* [ERC721 token](https://rinkeby.etherscan.io/token/0x6d5659f6b192494717dd7cdc1cc9428526367420)
 * [OpenSea](https://rinkeby.opensea.io/assets/capstone-v7)
+
+# Test
+
+* install dependencies - `npm i`
+* install nox - `npm i -g npx`
+* start ganache
+* go to `eth-contracts` folder
+* launch tests - `npx truffle test`
 
 # Project Resources
 
