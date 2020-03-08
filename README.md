@@ -1,14 +1,17 @@
-# Udacity Blockchain Capstone
+# Udacity Project 5: Blockchain Capstone
 
-The capstone will build upon the knowledge you have gained in the course in order to build a decentralized housing product.
+## Description:
 
-# Capstone ERC721 token links:
+The capstone will build upon the knowledge you have gained in the course in order to build a decentralized housing product. This app demonstrates how to create and integrate ERC721 token into existing marketplace **OpenSea**. Also this app uses ZK-SNARK to mint new token... why not...
 
+### Capstone ERC721 token links:
 * [Contract](https://rinkeby.etherscan.io/address/0x6d5659f6b192494717dd7cdc1cc9428526367420)
+
 * [ERC721 token](https://rinkeby.etherscan.io/token/0x6d5659f6b192494717dd7cdc1cc9428526367420)
+
 * [OpenSea](https://rinkeby.opensea.io/assets/capstone-v7)
 
-# Test
+### Test:
 
 * install dependencies - `npm i`
 * install nox - `npm i -g npx`
@@ -16,8 +19,7 @@ The capstone will build upon the knowledge you have gained in the course in orde
 * go to `eth-contracts` folder
 * launch tests - `npx truffle test`
 
-# Project Resources
-
+### Project Resources:
 * [Remix - Solidity IDE](https://remix.ethereum.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Truffle Framework](https://truffleframework.com/)
