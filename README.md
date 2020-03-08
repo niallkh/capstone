@@ -1,6 +1,6 @@
 # Udacity Project 5: Blockchain Capstone
 
-## Description:
+### Description:
 
 The capstone will build upon the knowledge you have gained in the course in order to build a decentralized housing product. This app demonstrates how to create and integrate ERC721 token into existing marketplace **OpenSea**. Also this app uses ZK-SNARK to mint new token... why not...
 
@@ -14,7 +14,7 @@ The capstone will build upon the knowledge you have gained in the course in orde
 ### Test:
 
 * install dependencies - `npm i`
-* install nox - `npm i -g npx`
+* install npx - `npm i -g npx`
 * start ganache
 * go to `eth-contracts` folder
 * launch tests - `npx truffle test`
